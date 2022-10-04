@@ -1,6 +1,6 @@
 package com.test.ejemplos;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.when;
 
@@ -16,34 +16,27 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.test.ejemplos.interfaces.Calcular;
 
-
-
 @ExtendWith(MockitoExtension.class)
-class SumarTest {
+class DividirTest {
 	private final static Logger log= Logger.getLogger("com.test.ejemplos.CalculadoraTest");
 	
 	@InjectMocks
-	Sumar sumar = new Sumar(); //IMPORTANTE: General la instancia cuando utilizamos inyecci�n
-	/*
-	//Stub o mockito
-	Calcular calcular = (int... operandos)->{return operandos[0]+operandos[1];};
-	*/
+	Dividir dividir = new Dividir(); 
 	
 	@Mock Calcular calcular;
 	@BeforeEach
 	void init() {	    
-	   // this.sumar= new Sumar(calcular); //Cuando usamos stub o "mockito" manual
-	    log.info("Ejecutamos test");
+		log.info("Ejecutamos test Dividir");
 	}
 	
 	@Test
-	@DisplayName("Sumar dos operandos")
-	public void sumarDosOperandos(){
-		when(calcular.operar(1,1)).thenReturn(2);
-		lenient().when(calcular.operar(1,2)).thenReturn(3);
-		assertEquals(2, this.sumar.sumar(1,1), "1 + 1 should equal 2");
+	@DisplayName("Dividir dos operandos")
+	public void dividirDosOperandos(){
+		
+		when(calcular.operar(1,1)).thenReturn(1);
+		//lenient().when(calcular.operar(3,2)).thenReturn(2);
+		assertEquals(1, this.dividir.dividir(1,1), "1 / 1 should equal 1");
 	}
 	
-	
-}
 
+}
