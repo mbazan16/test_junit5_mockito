@@ -27,7 +27,7 @@ class CalculadoraTest {
 	
 	@BeforeAll
 	static void setup() {
-		log.info("Ejecución del método setup() antes de ejecutarse los test");
+		log.info("Ejecuciï¿½n del mï¿½todo setup() antes de ejecutarse los test");
 	}
 	
 	@BeforeEach
