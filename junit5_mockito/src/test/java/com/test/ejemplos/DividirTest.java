@@ -14,6 +14,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.test.ejemplos.excepciones.DivisorCeroExcepcion;
 import com.test.ejemplos.interfaces.Calcular;
 
 @ExtendWith(MockitoExtension.class)
@@ -70,6 +71,12 @@ class DividirTest {
 	}
 */
 	
+	@Test 
+	@DisplayName("Division por cero")
+	public void divisionEntreCero(){
+		when(calcular.operar(6,0)).thenThrow(new DivisorCeroExcepcion("Division entre cero"));
+		Exception exception = assertThrows(DivisorCeroExcepcion.class, () -> this.dividir.dividir(6,0));
+	}
 	
 	/*
 	@Test(expected=exception)
