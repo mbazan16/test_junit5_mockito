@@ -1,6 +1,7 @@
 package com.test.ejemplos;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.when;
 
@@ -14,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.test.ejemplos.excepciones.DivisorCeroExcepcion;
 import com.test.ejemplos.interfaces.Calcular;
 
 @ExtendWith(MockitoExtension.class)
@@ -38,15 +40,15 @@ class DividirTest {
 		assertEquals(1, this.dividir.dividir(1,1), "1 / 1 should equal 1");
 	}
 	
-	/*  Test realizado por Maria
+	// Test realizado por Maria
 	@Test
 	@DisplayName("Dividir dos operandos, un de ellos por 0")
 	public void dividirPorCero(){
 		
-		when(calcular.operar(1,0)).thenThrow(new DivisiorCeroExcepcion("Division por cero"));	
-		Excepcion excepcion = assertThrows(null, null)
+		when(calcular.operar(1,0)).thenThrow(new DivisorCeroExcepcion("Division por cero"));	
+		Exception  exception = assertThrows(DivisorCeroExcepcion.class, () -> this.dividir.dividir(1,0));
 	}
-	*/
+	
 	
 
 }
