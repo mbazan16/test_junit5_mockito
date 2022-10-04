@@ -20,7 +20,7 @@ import com.test.ejemplos.interfaces.Calcular;
 
 @ExtendWith(MockitoExtension.class)
 class DividirTest {
-	private final static Logger log= Logger.getLogger("com.test.ejemplos.CalculadoraTest");
+	private final static Logger log= Logger.getLogger("com.test.ejemplos.DividirTest");
 	
 	@InjectMocks
 	Dividir dividir= new Dividir(); //IMPORTANTE: General la instancia cuando utilizamos inyecci�n
