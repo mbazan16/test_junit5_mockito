@@ -12,9 +12,6 @@ public class Dividir {
 	}*/
 	 	
 	public int dividir(int... operandos) {
-		if(operandos[1] == 0)
-			throw new DivisorCeroExcepcion("El segundo operando es un 0");
-	
 		return calcular.operar(operandos);
 	}
 }
