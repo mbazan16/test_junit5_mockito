@@ -33,7 +33,7 @@ class DividirTest {
 	@DisplayName("Division test")
 	public void dividirTest(){
 		when(calcular.operar(4,2)).thenReturn(2);
-		assertEquals(2, this.dividir.dividir(4,2), "4 / 2 should equal");
+		assertEquals(2, this.dividir.dividir(4,2), "4 / 2 should equal 2");
 	}
 	
 //	@Test
