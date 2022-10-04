@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.test.ejemplos.excepciones.DivisorCeroExcepcion;
 import com.test.ejemplos.interfaces.Calcular;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,10 +30,24 @@ class DividirTest {
 	}
 	
 	@Test
-	@DisplayName("Division")
+	@DisplayName("Division test")
 	public void dividirTest(){
-		when(calcular.operar(4,2)).thenReturn(2); //el .thenReturn no deja que devuelva floats
-		assertEquals(2, this.dividir.dividir(4,2), "4 / 2 should equal 2.0");
+		when(calcular.operar(4,2)).thenReturn(2);
+		assertEquals(2, this.dividir.dividir(4,2), "4 / 2 should equal");
+	}
+	
+//	@Test
+//	@DisplayName("Division test con resultado decimal")
+//	public void dividirTestConFloat(){
+//		when(calcular.operar(3,2)).thenReturn(1.5);
+//		assertEquals(2, this.dividir.dividir(4,2), "3 / 2 should equal 1.5");
+//	}
+	
+	@Test
+	@DisplayName("Division test con división entre 0")
+	public void dividirTestConExcepcionEntreCero(){
+		when(calcular.operar(1, 0)).thenThrow(new DivisorCeroExcepcion("Division entre 0."));
+		Exception exception = assertThrows(DivisorCeroExcepcion.class, () -> this.dividir.dividir(1,0));
 	}
 
 }
