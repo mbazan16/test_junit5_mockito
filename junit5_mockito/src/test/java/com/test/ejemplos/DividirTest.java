@@ -38,5 +38,15 @@ class DividirTest {
 		assertEquals(1, this.dividir.dividir(1,1), "1 / 1 should equal 1");
 	}
 	
+	/*  Test realizado por Maria
+	@Test
+	@DisplayName("Dividir dos operandos, un de ellos por 0")
+	public void dividirPorCero(){
+		
+		when(calcular.operar(1,0)).thenThrow(new DivisiorCeroExcepcion("Division por cero"));	
+		Excepcion excepcion = assertThrows(null, null)
+	}
+	*/
+	
 
 }
